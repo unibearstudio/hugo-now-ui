@@ -1,30 +1,76 @@
 <!doctype html>
 <html lang="en">
-  {{partial "head" . }}
-  
-	<body class="{{ .Params.class | default "profile-page" }} sidebar-collapse">
-    {{ partial "nav" . }}
-    
-    <div class="{{ .Params.wrapper | default "wrapper" }}">
-      
-        <div class="page-header {{ .Params.headerstyle | default "page-header-small"}}" filter-color="{{ .Param "tint" | default "orange" }}">
-            <div class="page-header-image" data-parallax="true" style="background-image: url('{{ or (.Param "background") (default "img/header.jpg" | absURL) }}');">
-            </div>
-            
-            {{ block "title" . }}
-            {{ end }}
-            
-        </div>
-        <div class="{{ .Params.section | default "section"}}">
-            <div class="container">
-              
-            {{ block "body" . }}
-	          {{ end }}
+{{partial "head" . }}
 
+<body class="{{ .Params.class | default "profile-page" }} sidebar-collapse">
+{{ partial "nav" . }}
+<div class="{{ .Params.wrapper | default "wrapper" }}">
+{{ if .IsHome }}
+
+{{ end }}
+{{ block "title" . }}
+{{ end }}
+
+<div class="{{ .Params.section | default "section"}}">
+<div class="container">
+  {{ if not .IsHome }}
+  {{ block "body" . }}
+  {{ end }}
+  {{ end }}
+
+  {{ if .IsHome }}
+  <!--
+  <div class="main">
+    <div class="section section-images">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="hero-images-container">
+              <img src="/img/hero-image-1.png" alt="">
             </div>
+            <div class="hero-images-container-1">
+              <img src="/img/hero-image-2.png" alt="">
+            </div>
+            <div class="hero-images-container-2">
+              <img src="/img/hero-image-3.png" alt="">
+            </div>
+          </div>
         </div>
-      {{ partial "footer" . }}
+      </div>
     </div>
-  </body>
+  </div>
+  -->
+  <div class="page-header {{ .Params.headerstyle | default "page-header-small"}}" filter-color="{{ .Param "tint" | default "orange" }}">
+  <div class="page-header-image" data-parallax="true" style="background-image: url('{{ (.Param "background")  | (default "/img/background/home/lon-pandamoniumcity-2.png" | absURL) }}');">
+</div>
+<div class="container">
+  <div class="content-center brand">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <iframe width="640" height="480" src="https://www.youtube.com/embed/yfpUBoa-F9Q?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br>
+    <h1 class="h1-seo">
+      <a href="https://store.steampowered.com/app/1087310/DOOMTANK/">DOOMTANK is now on Steam!</a>
+    </h1>
+    <br>
+    <a href="https://store.steampowered.com/app/1087310/DOOMTANK/"><img src="/img/platforms/steam.png" alt="DOOMTANK on Steam" id="steam_logo"></a>
+  </div>
+</div>
+</div>
+<br>
+<h2 class="blockquote blockquote-primary">Unibear Studio : Ferociously Unique</h2>
+<h4>Video games are in our blood. Playing games is great, but all of us here at Unibear Studio have dreamed of creating our own games to creatively express ourselves while sharing our stories. Our mission is to deliver quality games that have meaning, depth, and personality that excite, immerse, and engage you, the player. </h4>
+{{ end }}
+</div>
+</div>
+{{ partial "footer" . }}
+</div>
+</body>
 {{partial "javascript" . }}
 </html>

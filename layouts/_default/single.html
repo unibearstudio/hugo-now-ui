@@ -1,19 +1,44 @@
 {{ define "title" }}
+{{ if .Params.tutorial }}
 <div class="container">
   <div class="content-center">
-    <h1 class="title">{{ .Title }}</h1>
-    <div class="text-center">
-      {{with .Params.description }} {{ . | safeHTML }} {{ end }}
-    </div>
+    <br/><br/><br/><br/><br/>
+    <body background="/img/background/black-banner.png"/>
+    <h1 class="title">{{ .Title }}
+      <br/><br/>
+      <img src={{ .Params.image }}>
+    </h1>
   </div>
 </div>
+{{ end }}
 {{ end }}
 
 {{ define "body" }}
 <div class="row">
   <div class="col-md-8 ml-auto mr-auto text-left">
-  {{ .Content }}
-  </div>   
+    {{ .Content }}
+  </div>
 </div>
-{{ end }}        
- 
+{{ if .Params.tutorial }}
+<div class="container">
+  <div class="content-center">
+    <div class="col-md-4">
+      <div class="team-player">
+        <img src={{ .Params.authorImg }} alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
+        <h4 class="title">{{ .Params.author }}</h4>
+        <p class="category text-primary">{{ .Params.authorPosition }}</p>
+        {{ if .Params.authorTwitter}}
+        <a href={{ .Params.authorTwitter }} class="btn btn-primary btn-icon btn-round"><i class="fa fa-twitter"></i></a>
+        {{ end }}
+        {{ if .Params.authorLinkedIn}}
+        <a href={{ .Params.authorLinkedIn }} class="btn btn-primary btn-icon btn-round"><i class="fa fa-linkedin"></i></a>
+        {{ end }}
+        {{ if .Params.authorGithub}}
+        <a href={{ .Params.authorGithub }} class="btn btn-primary btn-icon btn-round"><i class="fa fa-github"></i></a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
+{{ end }}
