@@ -4,7 +4,4 @@
 .Ruserdata
 .DS_Store
 .sass-cache
-/exampleSite
-/docs
-/images
-/
+exampleSite/themes
