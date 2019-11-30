@@ -12,6 +12,7 @@
     <link href="{{ "css/bootstrap.min.css" | relURL }}" rel="stylesheet" />
     <link href="{{ "css/now-ui-kit.css?v=1.1.0" | relURL }}" rel="stylesheet" />
     <link href="{{ "css/demo.css" | relURL }}" rel="stylesheet" />
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     
   {{ range .Site.Params.custom_css -}}
     <link rel="stylesheet" href="{{ . | absURL }}">
