@@ -20,8 +20,6 @@
 
         {{ if .IsHome }}
           <div class="page-header {{ .Params.headerstyle | default "page-header-small"}}" filter-color="{{ .Param "tint" | default "orange" }}">
-            <div class="page-header-image" data-parallax="true" style="background-image: url('{{ (.Param "background")  | (default "/img/background/home/lon-pandamoniumcity-2.png" | absURL) }}');">
-            </div>
             <div class="container">
               <br>
               <div class="videoWrapper">
