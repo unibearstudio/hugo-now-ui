@@ -5,3 +5,6 @@
 .DS_Store
 .sass-cache
 exampleSite/themes
+
+#JetBrains Idea
+.idea
