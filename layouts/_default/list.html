@@ -33,9 +33,10 @@
         <div class="card-body">
           <!-- Tab panes -->
           {{if .Params.image }}
-            <img src="{{ .Params.image  | absURL }}"  class="rounded" height="100px"/>
+            <a href="{{ .RelPermalink }}"><img src="{{ .Params.image  | absURL }}"></a>
           {{ end }}
-          {{.Summary}}
+          <br>
+          {{.Params.tagline}}
           {{ if .Truncated }}
             <div>
               <a href="{{ .RelPermalink }}">Read More…</a>
